@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+STEPHEN AKINTAYO FOUNDATION
 
-TODO: Document your project here
+@NEXATECHX
