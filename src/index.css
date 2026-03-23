@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 45 20% 90%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 45 20% 90%;
+
+    --popover: 222 40% 10%;
+    --popover-foreground: 45 20% 90%;
+
+    --primary: 43 72% 55%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 222 30% 16%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 222 30% 14%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 43 72% 55%;
+    --accent-foreground: 222 47% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 20% 18%;
+    --input: 222 20% 18%;
+    --ring: 43 72% 55%;
+
+    --radius: 0.75rem;
+
+    --gold: 43 72% 55%;
+    --gold-light: 43 80% 70%;
+    --gold-dark: 43 60% 40%;
+    --navy: 222 47% 6%;
+    --navy-light: 222 30% 16%;
+    --navy-mid: 222 35% 12%;
+
+    --sidebar-background: 222 40% 10%;
+    --sidebar-foreground: 45 20% 90%;
+    --sidebar-primary: 43 72% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 16%;
+    --sidebar-accent-foreground: 45 20% 90%;
+    --sidebar-border: 222 20% 18%;
+    --sidebar-ring: 43 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .gold-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(43 80% 70%), hsl(43 72% 55%), hsl(43 60% 40%));
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl border border-white/10;
+    background: linear-gradient(135deg, hsla(222, 30%, 16%, 0.6), hsla(222, 40%, 10%, 0.8));
+    box-shadow: 0 8px 32px hsla(0, 0%, 0%, 0.3), inset 0 1px 0 hsla(43, 72%, 55%, 0.08);
+  }
+
+  .gold-border-glow {
+    border: 1px solid hsla(43, 72%, 55%, 0.2);
+    box-shadow: 0 0 20px hsla(43, 72%, 55%, 0.05), inset 0 1px 0 hsla(43, 72%, 55%, 0.1);
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-24 md:py-32 px-4;
+  }
+
+  .section-padding-lg {
+    @apply py-20 sm:py-32 md:py-40 px-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
