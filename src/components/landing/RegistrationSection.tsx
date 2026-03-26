@@ -76,8 +76,8 @@ const RegistrationSection = () => {
                 </SelectTrigger>
                 <SelectContent className="bg-card border-white/10">
                   <SelectItem value="philadelphia">Philadelphia — Mar 28, 2026</SelectItem>
-                  <SelectItem value="dallas">Dallas — Apr 4, 2026</SelectItem>
-                  <SelectItem value="houston">Houston — Apr 11, 2026</SelectItem>
+                  <SelectItem value="houston">Houston — Apr 4, 2026</SelectItem>
+                  <SelectItem value="dallas">Dallas — Apr 12, 2026</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -86,7 +86,7 @@ const RegistrationSection = () => {
               <Input id="business" name="business" required placeholder="e.g. Tech, Real Estate, Finance" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
             </div>
             <Button variant="hero" size="xl" className="w-full mt-4" type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "Reserve My Seat"}
+              {loading ? "Submitting..." : "Register Now"}
             </Button>
           </form>
         </ScrollReveal>

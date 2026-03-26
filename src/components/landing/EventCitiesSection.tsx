@@ -4,8 +4,8 @@ import ScrollReveal from "./ScrollReveal";
 
 const cities = [
   { city: "Philadelphia", date: "Saturday, 28th March 2026", time: "10:00 AM" },
-  { city: "Dallas", date: "Saturday, 4th April 2026", time: "TBA" },
-  { city: "Houston", date: "Saturday, 11th April 2026", time: "TBA" },
+  { city: "Houston", date: "Saturday, 4th April 2026", time: "4:00 PM" },
+  { city: "Dallas", date: "Sunday, 12th April 2026", time: "4:00 PM" },
 ];
 
 const EventCitiesSection = () => (

@@ -11,7 +11,7 @@ const AboutSection = () => (
       </ScrollReveal>
       <ScrollReveal delay={0.08}>
         <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
-          What is the <span className="gold-gradient-text">Founder's Meet &amp; Greet?</span>
+          What is <span className="gold-gradient-text">America&apos;s Founders&apos; Meet &amp; Greet?</span>
         </h2>
       </ScrollReveal>
       <ScrollReveal delay={0.16}>

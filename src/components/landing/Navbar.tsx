@@ -30,7 +30,7 @@ const Navbar = () => {
     >
       <div className="container max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <a href="#" className="font-display text-lg md:text-xl font-bold gold-gradient-text">
-          Founder's Meet
+          America&apos;s Founders&apos;
         </a>
 
         {/* Desktop */}
@@ -45,7 +45,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button variant="hero" size="sm" asChild>
-            <a href="#register">Reserve My Seat</a>
+            <a href="#register">Register Now</a>
           </Button>
         </div>
 
@@ -73,7 +73,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button variant="hero" size="sm" className="mt-4 w-full" asChild>
-            <a href="#register">Reserve My Seat</a>
+            <a href="#register">Register Now</a>
           </Button>
         </div>
       )}

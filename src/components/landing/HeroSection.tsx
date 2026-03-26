@@ -45,7 +45,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="inline-block text-gold/80 font-body text-sm tracking-[0.2em] uppercase mb-6">
-                An Exclusive Event Experience
+                3 Locations, 1 Country
               </span>
             </motion.div>
 
@@ -55,7 +55,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-5 sm:mb-6"
             >
-              Meet <span className="gold-gradient-text">Dr. Stephen Akintayo</span> Live in America
+              America&apos;s <span className="gold-gradient-text">Founders&apos; Meet &amp; Greet</span>
             </motion.h1>
 
             <motion.p
@@ -64,7 +64,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
               className="font-body text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10"
             >
-              Join an exclusive Founder's Meet &amp; Greet with Dr. Stephen Akintayo in Philadelphia, Dallas, and Houston. Connect with visionary founders, entrepreneurs, and leaders for a powerful experience of networking, insight, business growth, and strategic relationships.
+              Join Dr. Stephen Akintayo for the official America&apos;s Founders&apos; Meet &amp; Greet tour in Philadelphia, Houston, and Dallas.
             </motion.p>
 
             <motion.div
@@ -74,10 +74,10 @@ const HeroSection = () => {
               className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4"
             >
               <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
-                <a href="#register">Reserve My Seat</a>
+                <a href="#register">Register Now</a>
               </Button>
               <Button variant="hero-outline" size="xl" className="w-full sm:w-auto" asChild>
-                <a href="#cities">See Event Cities</a>
+                <a href="#cities">See Locations</a>
               </Button>
             </motion.div>
 
@@ -100,7 +100,7 @@ const HeroSection = () => {
                 </div>
               ))}
               <div className="flex items-center ml-0 sm:ml-1">
-                <p className="font-body text-xs text-muted-foreground">until Philadelphia</p>
+                <p className="font-body text-xs text-muted-foreground">until Philadelphia kickoff</p>
               </div>
             </motion.div>
 
@@ -112,9 +112,9 @@ const HeroSection = () => {
               className="flex flex-wrap gap-6 sm:gap-8 mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10"
             >
               {[
-                { value: "12,000+", label: "Past Attendees" },
-                { value: "30+", label: "Countries Reached" },
-                { value: "5,000+", label: "Businesses Impacted" },
+                { value: "3", label: "Locations" },
+                { value: "1", label: "Country" },
+                { value: "Dr. Stephen Akintayo", label: "Founder, Saci Holdings" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center sm:text-left">
                   <p className="font-display text-2xl sm:text-3xl font-bold gold-gradient-text">{stat.value}</p>
@@ -140,7 +140,7 @@ const HeroSection = () => {
               />
               <div className="absolute bottom-4 left-4 right-4 glass-card rounded-xl p-4">
                 <p className="font-display text-sm font-semibold text-gold">Dr. Stephen Akintayo</p>
-                <p className="font-body text-xs text-muted-foreground">Entrepreneur · Investor · Author</p>
+                <p className="font-body text-xs text-muted-foreground">Founder, Saci Holdings</p>
               </div>
             </div>
           </motion.div>
