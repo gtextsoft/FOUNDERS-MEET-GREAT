@@ -66,7 +66,21 @@ const RegistrationSection = () => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone" className="font-body text-sm text-foreground/80">Phone Number</Label>
-              <Input id="phone" name="phone" type="tel" required placeholder="+1 (555) 000-0000" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
+              <Input
+                id="phone"
+                name="phone"
+                type="tel"
+                required
+                inputMode="tel"
+                autoComplete="tel"
+                placeholder="+1 555 000 0000"
+                pattern="^\+[0-9]{1,4}[0-9\s().-]{6,}$"
+                title="Please include country code, e.g. +1 555 000 0000"
+                className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body"
+              />
+              <p className="text-xs text-foreground/60 font-body">
+                Include country code (for example: +1, +44, +234).
+              </p>
             </div>
             <div className="space-y-2">
               <Label className="font-body text-sm text-foreground/80">Select City</Label>
