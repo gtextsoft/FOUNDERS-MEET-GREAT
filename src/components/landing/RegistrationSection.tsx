@@ -9,12 +9,30 @@ import ScrollReveal from "./ScrollReveal";
 const RegistrationSection = () => {
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("");
+  const phoneWithCountryCodeRegex = /^\+[0-9]{1,4}[0-9\s().-]{6,}$/;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
 
     const form = e.target as HTMLFormElement;
+    const phoneInput = form.elements.namedItem("phone") as HTMLInputElement | null;
+    const phoneValue = phoneInput?.value?.trim() ?? "";
+
+    if (!phoneWithCountryCodeRegex.test(phoneValue)) {
+      if (phoneInput) {
+        phoneInput.setCustomValidity("Please include country code, e.g. +1 555 000 0000");
+        phoneInput.reportValidity();
+        phoneInput.focus();
+      }
+      toast.error("Please enter your phone number with country code.");
+      return;
+    }
+
+    if (phoneInput) {
+      phoneInput.setCustomValidity("");
+    }
+
+    setLoading(true);
     const formData = new FormData(form);
     formData.append("city", city);
 
