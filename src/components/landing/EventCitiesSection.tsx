@@ -3,9 +3,7 @@ import { Button } from "@/components/ui/button";
 import ScrollReveal from "./ScrollReveal";
 
 const cities = [
-  { city: "Philadelphia", date: "Saturday, 28th March 2026", time: "10:00 AM" },
-  { city: "Houston", date: "Saturday, 4th April 2026", time: "4:00 PM" },
-  { city: "Dallas", date: "Sunday, 12th April 2026", time: "4:00 PM" },
+  { city: "London", date: "Thursday, 8th May", time: "6:00 PM (BTS)" },
 ];
 
 const EventCitiesSection = () => (
@@ -14,14 +12,14 @@ const EventCitiesSection = () => (
     <div className="container max-w-5xl mx-auto relative z-10">
       <ScrollReveal>
         <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block text-gold/70 font-body text-sm tracking-[0.2em] uppercase mb-4">Locations</span>
+          <span className="inline-block text-gold/70 font-body text-sm tracking-[0.2em] uppercase mb-4">Location</span>
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-            Event <span className="gold-gradient-text">Cities &amp; Dates</span>
+            Event <span className="gold-gradient-text">Location &amp; Date</span>
           </h2>
         </div>
       </ScrollReveal>
 
-      <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid md:grid-cols-1 gap-4 sm:gap-6 max-w-sm mx-auto">
         {cities.map((c, i) => (
           <ScrollReveal key={c.city} delay={i * 0.1}>
             <div className="glass-card gold-border-glow rounded-xl p-6 sm:p-8 text-center group hover:border-gold/40 transition-all duration-300">

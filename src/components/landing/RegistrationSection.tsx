@@ -8,7 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const RegistrationSection = () => {
   const [loading, setLoading] = useState(false);
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("london");
   const phoneWithCountryCodeRegex = /^\+[0-9]{1,4}[0-9\s().-]{6,}$/;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,7 +46,7 @@ const RegistrationSection = () => {
       if (res.ok) {
         toast.success("Registration received! We'll be in touch soon.");
         form.reset();
-        setCity("");
+        setCity("london");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -101,15 +101,13 @@ const RegistrationSection = () => {
               </p>
             </div>
             <div className="space-y-2">
-              <Label className="font-body text-sm text-foreground/80">Select City</Label>
+              <Label className="font-body text-sm text-foreground/80">Select Location</Label>
               <Select required value={city} onValueChange={setCity}>
                 <SelectTrigger className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body">
-                  <SelectValue placeholder="Choose a city" />
+                  <SelectValue placeholder="Choose a location" />
                 </SelectTrigger>
                 <SelectContent className="bg-card border-white/10">
-                  <SelectItem value="philadelphia">Philadelphia — Mar 28, 2026</SelectItem>
-                  <SelectItem value="houston">Houston — Apr 4, 2026</SelectItem>
-                  <SelectItem value="dallas">Dallas — Apr 12, 2026</SelectItem>
+                  <SelectItem value="london">London — 8th May, 6PM (BTS)</SelectItem>
                 </SelectContent>
               </Select>
             </div>

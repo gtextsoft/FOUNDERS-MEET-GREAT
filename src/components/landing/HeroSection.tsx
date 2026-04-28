@@ -5,7 +5,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const speakerImg = "https://28coe.com/wp-content/uploads/2021/09/Dr.-Stephen-Akintayo-3-scaled.jpg";
 
-const TARGET_DATE = new Date("2026-03-28T10:00:00-04:00").getTime();
+const TARGET_DATE = new Date("2026-05-08T18:00:00+01:00").getTime();
 
 function useCountdown() {
   const [now, setNow] = useState(Date.now());
@@ -45,7 +45,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="inline-block text-gold/80 font-body text-sm tracking-[0.2em] uppercase mb-6">
-                3 Locations, 1 Country
+                8th May • 6PM (BTS)
               </span>
             </motion.div>
 
@@ -55,7 +55,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-5 sm:mb-6"
             >
-              America&apos;s <span className="gold-gradient-text">Founders&apos; Meet &amp; Greet</span>
+              <span className="gold-gradient-text">London Meet &amp; Greet</span>
             </motion.h1>
 
             <motion.p
@@ -64,7 +64,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
               className="font-body text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10"
             >
-              Join Dr. Stephen Akintayo for the official America&apos;s Founders&apos; Meet &amp; Greet tour in Philadelphia, Houston, and Dallas.
+              Join Dr. Stephen Akintayo, Founder SACI HOLDINGS, for an exclusive London Meet &amp; Greet on 8th May at 6PM (BTS).
             </motion.p>
 
             <motion.div
@@ -100,7 +100,7 @@ const HeroSection = () => {
                 </div>
               ))}
               <div className="flex items-center ml-0 sm:ml-1">
-                <p className="font-body text-xs text-muted-foreground">until Philadelphia kickoff</p>
+                <p className="font-body text-xs text-muted-foreground">until London Meet &amp; Greet</p>
               </div>
             </motion.div>
 
@@ -112,9 +112,9 @@ const HeroSection = () => {
               className="flex flex-wrap gap-6 sm:gap-8 mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10"
             >
               {[
-                { value: "3", label: "Locations" },
+                { value: "London", label: "Location" },
                 { value: "1", label: "Country" },
-                { value: "Dr. Stephen Akintayo", label: "Founder, Saci Holdings" },
+                { value: "Dr. Stephen Akintayo", label: "Founder SACI HOLDINGS" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center sm:text-left">
                   <p className="font-display text-2xl sm:text-3xl font-bold gold-gradient-text">{stat.value}</p>
@@ -140,7 +140,7 @@ const HeroSection = () => {
               />
               <div className="absolute bottom-4 left-4 right-4 glass-card rounded-xl p-4">
                 <p className="font-display text-sm font-semibold text-gold">Dr. Stephen Akintayo</p>
-                <p className="font-body text-xs text-muted-foreground">Founder, Saci Holdings</p>
+                <p className="font-body text-xs text-muted-foreground">Founder SACI HOLDINGS</p>
               </div>
             </div>
           </motion.div>

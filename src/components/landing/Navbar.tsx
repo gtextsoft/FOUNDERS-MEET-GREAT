@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Why Attend", href: "#why-attend" },
-  { label: "Cities", href: "#cities" },
+  { label: "Location", href: "#cities" },
   { label: "Speaker", href: "#speaker" },
   { label: "Register", href: "#register" },
 ];
@@ -30,7 +30,7 @@ const Navbar = () => {
     >
       <div className="container max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <a href="#" className="font-display text-lg md:text-xl font-bold gold-gradient-text">
-          America&apos;s Founders&apos;
+          London Meet &amp; Greet
         </a>
 
         {/* Desktop */}

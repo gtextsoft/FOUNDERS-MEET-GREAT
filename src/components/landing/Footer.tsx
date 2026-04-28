@@ -4,9 +4,9 @@ const Footer = () => (
       <div className="glass-card rounded-2xl p-6 sm:p-8">
         <div className="grid gap-8 md:grid-cols-2 md:items-start">
           <div className="text-center md:text-left">
-            <p className="font-display text-xl font-bold gold-gradient-text">America&apos;s Founders&apos; Meet &amp; Greet</p>
+            <p className="font-display text-xl font-bold gold-gradient-text">London Meet &amp; Greet</p>
             <p className="mt-3 text-sm font-body text-muted-foreground max-w-md mx-auto md:mx-0">
-              Hosted by Dr. Stephen Akintayo. Three cities, one mission: connect founders and growth-minded leaders.
+              Hosted by Dr. Stephen Akintayo, Founder SACI HOLDINGS. Join us in London on 8th May at 6PM (BTS).
             </p>
           </div>
 
@@ -14,7 +14,7 @@ const Footer = () => (
             <p className="font-body text-xs tracking-[0.18em] uppercase text-gold/80 mb-3">Quick Links</p>
             <div className="flex flex-wrap gap-x-5 gap-y-2 justify-center md:justify-end">
               <a href="#about" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">About</a>
-              <a href="#cities" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">Cities</a>
+              <a href="#cities" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">Location</a>
               <a href="#speaker" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">Speaker</a>
             </div>
           </div>
@@ -29,8 +29,8 @@ const Footer = () => (
           <a href="tel:+12815050527" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">
             +1 (281) 505-0527
           </a>
-          <a href="tel:+18325380618" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">
-            +1 (832) 538-0618
+          <a href="tel:+2348167901719" className="text-sm font-body text-muted-foreground hover:text-gold transition-colors">
+            +234 816 790 1719
           </a>
         </div>
 
