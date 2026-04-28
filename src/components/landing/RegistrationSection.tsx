@@ -8,6 +8,7 @@ import ScrollReveal from "./ScrollReveal";
 
 const RegistrationSection = () => {
   const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [city, setCity] = useState("london");
   const phoneWithCountryCodeRegex = /^\+[0-9]{1,4}[0-9\s().-]{6,}$/;
 
@@ -47,6 +48,7 @@ const RegistrationSection = () => {
         toast.success("Registration received! We'll be in touch soon.");
         form.reset();
         setCity("london");
+        setSubmitted(true);
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -73,52 +75,71 @@ const RegistrationSection = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.12}>
-          <form onSubmit={handleSubmit} className="glass-card gold-border-glow rounded-2xl p-5 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="fullName" className="font-body text-sm text-foreground/80">Full Name</Label>
-              <Input id="fullName" name="fullName" required placeholder="Your full name" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="email" className="font-body text-sm text-foreground/80">Email Address</Label>
-              <Input id="email" name="email" type="email" required placeholder="you@example.com" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="font-body text-sm text-foreground/80">Phone Number</Label>
-              <Input
-                id="phone"
-                name="phone"
-                type="tel"
-                required
-                inputMode="tel"
-                autoComplete="tel"
-                placeholder="+1 555 000 0000"
-                pattern="^\+[0-9]{1,4}[0-9\s().-]{6,}$"
-                title="Please include country code, e.g. +1 555 000 0000"
-                className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body"
-              />
-              <p className="text-xs text-foreground/60 font-body">
-                Include country code (for example: +1, +44, +234).
+          {submitted ? (
+            <div className="glass-card gold-border-glow rounded-2xl p-5 sm:p-8 md:p-10 text-center space-y-5">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold">
+                Registration Successful!
+              </h3>
+              <p className="font-body text-foreground/80">
+                Thanks for registering. Join the community to stay updated.
               </p>
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto"
+                onClick={() => window.open("https://chat.whatsapp.com/GyUvocdp9K6GPkjT9ElDQD", "_blank", "noopener,noreferrer")}
+              >
+                Join the community
+              </Button>
             </div>
-            <div className="space-y-2">
-              <Label className="font-body text-sm text-foreground/80">Select Location</Label>
-              <Select required value={city} onValueChange={setCity}>
-                <SelectTrigger className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body">
-                  <SelectValue placeholder="Choose a location" />
-                </SelectTrigger>
-                <SelectContent className="bg-card border-white/10">
-                  <SelectItem value="london">London — 8th May, 6PM (BTS)</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="business" className="font-body text-sm text-foreground/80">Business / Industry</Label>
-              <Input id="business" name="business" required placeholder="e.g. Tech, Real Estate, Finance" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
-            </div>
-            <Button variant="hero" size="xl" className="w-full mt-4" type="submit" disabled={loading}>
-              {loading ? "Submitting..." : "Register Now"}
-            </Button>
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="glass-card gold-border-glow rounded-2xl p-5 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="fullName" className="font-body text-sm text-foreground/80">Full Name</Label>
+                <Input id="fullName" name="fullName" required placeholder="Your full name" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="font-body text-sm text-foreground/80">Email Address</Label>
+                <Input id="email" name="email" type="email" required placeholder="you@example.com" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone" className="font-body text-sm text-foreground/80">Phone Number</Label>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="+1 555 000 0000"
+                  pattern="^\+[0-9]{1,4}[0-9\s().-]{6,}$"
+                  title="Please include country code, e.g. +1 555 000 0000"
+                  className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body"
+                />
+                <p className="text-xs text-foreground/60 font-body">
+                  Include country code (for example: +1, +44, +234).
+                </p>
+              </div>
+              <div className="space-y-2">
+                <Label className="font-body text-sm text-foreground/80">Select Location</Label>
+                <Select required value={city} onValueChange={setCity}>
+                  <SelectTrigger className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body">
+                    <SelectValue placeholder="Choose a location" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-card border-white/10">
+                    <SelectItem value="london">London — 8th May, 6PM (BTS)</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="business" className="font-body text-sm text-foreground/80">Business / Industry</Label>
+                <Input id="business" name="business" required placeholder="e.g. Tech, Real Estate, Finance" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
+              </div>
+              <Button variant="hero" size="xl" className="w-full mt-4" type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Register Now"}
+              </Button>
+            </form>
+          )}
         </ScrollReveal>
       </div>
     </section>
