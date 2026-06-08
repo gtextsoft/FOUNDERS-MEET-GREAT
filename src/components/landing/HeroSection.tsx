@@ -5,7 +5,7 @@ import heroBg from "@/assets/hero-bg.jpg";
 
 const speakerImg = "https://28coe.com/wp-content/uploads/2021/09/Dr.-Stephen-Akintayo-3-scaled.jpg";
 
-const TARGET_DATE = new Date("2026-05-08T18:00:00+01:00").getTime();
+const TARGET_DATE = new Date("2026-06-13T12:00:00+01:00").getTime();
 
 function useCountdown() {
   const [now, setNow] = useState(Date.now());
@@ -45,7 +45,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="inline-block text-gold/80 font-body text-sm tracking-[0.2em] uppercase mb-6">
-                8th May • 6PM (BTS)
+                Saturday, 13th June 2026
               </span>
             </motion.div>
 
@@ -55,16 +55,25 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight mb-5 sm:mb-6"
             >
-              <span className="gold-gradient-text">London Meet &amp; Greet</span>
+              <span className="gold-gradient-text">London CEO &amp; Founders Meet &amp; Greet</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+              className="font-body text-gold/90 text-sm sm:text-base tracking-[0.15em] uppercase mb-4"
+            >
+              Connect. Collaborate. Grow.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="font-body text-muted-foreground text-sm sm:text-lg leading-relaxed max-w-xl mb-8 sm:mb-10"
             >
-              Join Dr. Stephen Akintayo, Founder SACI HOLDINGS, for an exclusive London Meet &amp; Greet on 8th May at 6PM (BTS).
+              Join Dr. Stephen Akintayo, Founder SACI HOLDINGS, for an exclusive London CEO &amp; Founders Meet &amp; Greet on Saturday, 13th June 2026.
             </motion.p>
 
             <motion.div
@@ -100,7 +109,7 @@ const HeroSection = () => {
                 </div>
               ))}
               <div className="flex items-center ml-0 sm:ml-1">
-                <p className="font-body text-xs text-muted-foreground">until London Meet &amp; Greet</p>
+                <p className="font-body text-xs text-muted-foreground">until the event</p>
               </div>
             </motion.div>
 

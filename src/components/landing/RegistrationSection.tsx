@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,8 +8,8 @@ import { toast } from "sonner";
 import ScrollReveal from "./ScrollReveal";
 
 const RegistrationSection = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [city, setCity] = useState("london");
   const phoneWithCountryCodeRegex = /^\+[0-9]{1,4}[0-9\s().-]{6,}$/;
 
@@ -48,7 +49,7 @@ const RegistrationSection = () => {
         toast.success("Registration received! We'll be in touch soon.");
         form.reset();
         setCity("london");
-        setSubmitted(true);
+        navigate("/thank-you");
       } else {
         toast.error("Something went wrong. Please try again.");
       }
@@ -75,24 +76,6 @@ const RegistrationSection = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={0.12}>
-          {submitted ? (
-            <div className="glass-card gold-border-glow rounded-2xl p-5 sm:p-8 md:p-10 text-center space-y-5">
-              <h3 className="font-display text-2xl sm:text-3xl font-bold">
-                Registration Successful!
-              </h3>
-              <p className="font-body text-foreground/80">
-                Thanks for registering. Join the community to stay updated.
-              </p>
-              <Button
-                variant="hero"
-                size="xl"
-                className="w-full sm:w-auto"
-                onClick={() => window.open("https://chat.whatsapp.com/GyUvocdp9K6GPkjT9ElDQD", "_blank", "noopener,noreferrer")}
-              >
-                Join the community
-              </Button>
-            </div>
-          ) : (
             <form onSubmit={handleSubmit} className="glass-card gold-border-glow rounded-2xl p-5 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="fullName" className="font-body text-sm text-foreground/80">Full Name</Label>
@@ -127,7 +110,7 @@ const RegistrationSection = () => {
                     <SelectValue placeholder="Choose a location" />
                   </SelectTrigger>
                   <SelectContent className="bg-card border-white/10">
-                    <SelectItem value="london">London — 8th May, 6PM (BTS)</SelectItem>
+                    <SelectItem value="london">London — Saturday, 13th June 2026</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -139,7 +122,6 @@ const RegistrationSection = () => {
                 {loading ? "Submitting..." : "Register Now"}
               </Button>
             </form>
-          )}
         </ScrollReveal>
       </div>
     </section>

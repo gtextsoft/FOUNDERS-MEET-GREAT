@@ -30,7 +30,7 @@ const Navbar = () => {
     >
       <div className="container max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20 px-4">
         <a href="#" className="font-display text-lg md:text-xl font-bold gold-gradient-text">
-          London Meet &amp; Greet
+          London CEO &amp; Founders
         </a>
 
         {/* Desktop */}

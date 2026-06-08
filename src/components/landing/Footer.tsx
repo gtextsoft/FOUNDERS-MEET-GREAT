@@ -4,9 +4,9 @@ const Footer = () => (
       <div className="glass-card rounded-2xl p-6 sm:p-8">
         <div className="grid gap-8 md:grid-cols-2 md:items-start">
           <div className="text-center md:text-left">
-            <p className="font-display text-xl font-bold gold-gradient-text">London Meet &amp; Greet</p>
+            <p className="font-display text-xl font-bold gold-gradient-text">London CEO &amp; Founders Meet &amp; Greet</p>
             <p className="mt-3 text-sm font-body text-muted-foreground max-w-md mx-auto md:mx-0">
-              Hosted by Dr. Stephen Akintayo, Founder SACI HOLDINGS. Join us in London on 8th May at 6PM (BTS).
+              Hosted by the Stephen Akintayo Foundation. Join Dr. Stephen Akintayo, Founder SACI HOLDINGS, in London on Saturday, 13th June 2026.
             </p>
           </div>
 

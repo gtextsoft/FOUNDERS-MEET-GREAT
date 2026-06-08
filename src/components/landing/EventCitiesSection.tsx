@@ -1,9 +1,9 @@
-import { MapPin, CalendarDays, Clock } from "lucide-react";
+import { MapPin, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "./ScrollReveal";
 
 const cities = [
-  { city: "London", date: "Thursday, 8th May", time: "6:00 PM (BTS)" },
+  { city: "London", date: "Saturday, 13th June 2026" },
 ];
 
 const EventCitiesSection = () => (
@@ -27,13 +27,9 @@ const EventCitiesSection = () => (
                 <MapPin className="w-6 h-6 text-gold" />
               </div>
               <h3 className="font-display text-xl sm:text-2xl font-bold mb-3 gold-gradient-text">{c.city}</h3>
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-2">
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
                 <CalendarDays className="w-4 h-4 text-gold/60" />
                 <span className="font-body">{c.date}</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
-                <Clock className="w-4 h-4 text-gold/60" />
-                <span className="font-body">{c.time}</span>
               </div>
               <Button variant="hero" size="sm" className="w-full" asChild>
                 <a href="#register">Register Now</a>
