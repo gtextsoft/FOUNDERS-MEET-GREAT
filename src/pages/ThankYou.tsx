@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { EVENT_DATE_DISPLAY } from "@/lib/event";
 
 const WHATSAPP_COMMUNITY_URL = "https://chat.whatsapp.com/GyUvocdp9K6GPkjT9ElDQD";
 
@@ -9,7 +10,7 @@ const ThankYou = () => (
     <div className="absolute bottom-1/3 right-1/4 w-48 h-48 rounded-full bg-gold/3 blur-3xl animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
 
     <div className="relative z-10 w-full max-w-lg">
-      <div className="glass-card gold-border-glow rounded-2xl p-8 sm:p-10 text-center space-y-6">
+      <div className="glass-card gold-border-glow card-accent-top rounded-2xl p-8 sm:p-10 text-center space-y-6">
         <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto">
           <CheckCircle2 className="w-8 h-8 text-gold" />
         </div>
@@ -19,7 +20,7 @@ const ThankYou = () => (
             Registration <span className="gold-gradient-text">Successful!</span>
           </h1>
           <p className="font-body text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Thank you for registering for the London CEO &amp; Founders Meet &amp; Greet on Saturday, 13th June 2026. We&apos;ll be in touch with more details soon.
+            Thank you for registering for the London CEO &amp; Founders Meet &amp; Greet on {EVENT_DATE_DISPLAY}. We&apos;ll be in touch with more details soon.
           </p>
         </div>
 

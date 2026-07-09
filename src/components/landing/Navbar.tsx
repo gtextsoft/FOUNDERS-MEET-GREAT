@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { EVENT_DATE_SHORT } from "@/lib/event";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -24,32 +25,31 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-gold/10 shadow-lg shadow-black/20"
+          ? "bg-background/85 backdrop-blur-xl border-b border-gold/15 shadow-lg shadow-black/25"
           : "bg-transparent"
       }`}
     >
       <div className="container max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20 px-4">
-        <a href="#" className="font-display text-lg md:text-xl font-bold gold-gradient-text">
+        <a href="#" className="font-display text-lg md:text-xl font-bold gold-gradient-text leading-tight">
           London CEO &amp; Founders
         </a>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-body text-muted-foreground hover:text-gold transition-colors duration-200"
+              className="text-sm font-body text-muted-foreground hover:text-gold-light transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
+          <span className="text-xs font-body text-gold/70 tracking-wide hidden lg:inline">{EVENT_DATE_SHORT}</span>
           <Button variant="hero" size="sm" asChild>
             <a href="#register">Register Now</a>
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="md:hidden text-foreground p-2"
@@ -59,15 +59,15 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-gold/10 px-4 pb-6 pt-2">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-gold/15 px-4 pb-6 pt-2">
+          <p className="text-xs font-body text-gold/70 tracking-wide py-2">{EVENT_DATE_SHORT} · London</p>
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-sm font-body text-muted-foreground hover:text-gold transition-colors"
+              className="block py-3 text-sm font-body text-muted-foreground hover:text-gold-light transition-colors"
             >
               {link.label}
             </a>

@@ -3,29 +3,27 @@ import ScrollReveal from "./ScrollReveal";
 
 const SpeakerSection = () => (
   <section id="speaker" className="section-padding relative">
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-navy-mid to-background" />
+    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navy-mid/50 to-transparent" />
     <div className="container max-w-6xl mx-auto relative z-10">
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         <ScrollReveal direction="left">
           <div className="relative mx-auto lg:mx-0 max-w-sm">
-            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-gold/20 via-transparent to-gold/10 blur-md" />
+            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-gold/20 via-transparent to-gold/10 blur-md" />
             <img
               src={speakerImg}
               alt="Dr. Stephen Akintayo"
-              className="relative rounded-2xl w-full object-cover shadow-2xl shadow-black/40"
+              className="relative rounded-2xl w-full aspect-[4/5] object-cover object-top shadow-2xl shadow-black/40 ring-1 ring-gold/20"
             />
           </div>
         </ScrollReveal>
 
         <div>
           <ScrollReveal direction="right">
-            <span className="inline-block text-gold/70 font-body text-sm tracking-[0.2em] uppercase mb-4">
-              Featured Speaker
-            </span>
+            <span className="section-eyebrow">Featured Speaker</span>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.08}>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              About <span className="gold-gradient-text">Dr. Stephen Akintayo</span>
+              About <span className="gold-gradient-text italic">Dr. Stephen Akintayo</span>
             </h2>
           </ScrollReveal>
           <ScrollReveal direction="right" delay={0.16}>
