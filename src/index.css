@@ -62,11 +62,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'DM Sans', sans-serif;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -20%, hsla(38, 72%, 58%, 0.08), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 50%, hsla(222, 40%, 30%, 0.15), transparent),
-      radial-gradient(ellipse 50% 30% at 0% 80%, hsla(38, 50%, 40%, 0.06), transparent);
-    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -118,46 +113,12 @@
     @apply py-20 sm:py-32 md:py-40 px-4;
   }
 
-  .section-eyebrow {
-    @apply inline-flex items-center gap-3 font-body text-xs sm:text-sm tracking-[0.22em] uppercase text-gold/80 mb-5;
+  .funnel-section {
+    @apply py-14 sm:py-20 md:py-24;
   }
 
-  .section-eyebrow::before,
-  .section-eyebrow::after {
-    content: "";
-    @apply h-px w-8 sm:w-12 bg-gradient-to-r from-transparent to-gold/50;
-  }
-
-  .section-eyebrow::after {
-    @apply bg-gradient-to-l;
-  }
-
-  .date-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-4 py-1.5 font-body text-xs sm:text-sm tracking-[0.12em] uppercase text-gold-light;
-    box-shadow: 0 0 20px hsla(38, 72%, 58%, 0.1);
-  }
-
-  .hero-grid {
-    background-image:
-      linear-gradient(hsla(38, 72%, 58%, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, hsla(38, 72%, 58%, 0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
-  }
-
-  .card-accent-top {
-    @apply relative overflow-hidden;
-  }
-
-  .card-accent-top::before {
-    content: "";
-    @apply absolute top-0 left-0 right-0 h-px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      hsla(38, 72%, 58%, 0.6),
-      transparent
-    );
+  .funnel-section-lg {
+    @apply py-16 sm:py-24 md:py-28;
   }
 }
 

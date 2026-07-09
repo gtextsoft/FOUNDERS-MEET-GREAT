@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import ScrollReveal from "./ScrollReveal";
-import { EVENT_LOCATION_LABEL } from "@/lib/event";
+import SectionHeader from "./SectionHeader";
+import CountdownStrip from "./CountdownStrip";
+import { EVENT_DATE_DISPLAY, EVENT_LOCATION_LABEL } from "@/lib/event";
+import { registrationIncludes } from "@/lib/funnel-content";
 
 const RegistrationSection = () => {
   const navigate = useNavigate();
@@ -62,66 +66,104 @@ const RegistrationSection = () => {
   };
 
   return (
-    <section id="register" className="section-padding-lg relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-navy-mid to-background" />
-      <div className="container max-w-2xl mx-auto relative z-10">
+    <section id="register" className="funnel-section-lg">
+      <div className="container mx-auto max-w-6xl px-4">
         <ScrollReveal>
-          <div className="text-center mb-12">
-            <span className="section-eyebrow">Register Now</span>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-              Secure Your <span className="gold-gradient-text italic">Seat</span>
-            </h2>
-          </div>
+          <SectionHeader
+            label="Final step"
+            title="Reserve your seat for the London meet & greet"
+            description="Complete the form below. The team will confirm your registration and send venue details before the event."
+            align="center"
+          />
         </ScrollReveal>
 
-        <ScrollReveal delay={0.12}>
-            <form onSubmit={handleSubmit} className="glass-card gold-border-glow card-accent-top rounded-2xl p-5 sm:p-8 md:p-10 space-y-5 sm:space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="fullName" className="font-body text-sm text-foreground/80">Full Name</Label>
-                <Input id="fullName" name="fullName" required placeholder="Your full name" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
+        <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-10 lg:items-start">
+          <ScrollReveal delay={0.05}>
+            <aside className="lg:sticky lg:top-24">
+              <div className="rounded-2xl border border-border bg-card p-6 sm:p-7">
+                <p className="font-body text-xs uppercase tracking-[0.18em] text-gold/80">Your registration includes</p>
+                <ul className="mt-5 space-y-3">
+                  {registrationIncludes.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                      <span className="font-body text-sm text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 border-t border-border pt-5">
+                  <p className="font-body text-xs uppercase tracking-wide text-muted-foreground">Event date</p>
+                  <p className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_DATE_DISPLAY}</p>
+                </div>
+
+                <div className="mt-5 border-t border-border pt-5">
+                  <p className="mb-3 font-body text-xs uppercase tracking-wide text-muted-foreground">Time left to register</p>
+                  <CountdownStrip compact />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="email" className="font-body text-sm text-foreground/80">Email Address</Label>
-                <Input id="email" name="email" type="email" required placeholder="you@example.com" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
+            </aside>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.1}>
+            <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-card p-5 sm:p-8">
+              <p className="font-body text-sm font-medium text-foreground">Registration form</p>
+              <p className="mt-1 font-body text-xs text-muted-foreground">
+                Fields marked below are required to secure your seat.
+              </p>
+
+              <div className="mt-6 space-y-5">
+                <div className="space-y-2">
+                  <Label htmlFor="fullName" className="font-body text-sm text-foreground/90">Full name</Label>
+                  <Input id="fullName" name="fullName" required placeholder="Your full name" className="border-border bg-background font-body" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="font-body text-sm text-foreground/90">Email address</Label>
+                  <Input id="email" name="email" type="email" required placeholder="you@example.com" className="border-border bg-background font-body" />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="font-body text-sm text-foreground/90">Phone number</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    inputMode="tel"
+                    autoComplete="tel"
+                    placeholder="+44 7700 900000"
+                    pattern="^\+[0-9]{1,4}[0-9\s().-]{6,}$"
+                    title="Please include country code, e.g. +44 7700 900000"
+                    className="border-border bg-background font-body"
+                  />
+                  <p className="font-body text-xs text-muted-foreground">
+                    Include country code (for example: +44, +1, +234).
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <Label className="font-body text-sm text-foreground/90">Event location</Label>
+                  <Select required value={city} onValueChange={setCity}>
+                    <SelectTrigger className="border-border bg-background font-body">
+                      <SelectValue placeholder="Choose a location" />
+                    </SelectTrigger>
+                    <SelectContent className="border-border bg-card">
+                      <SelectItem value="london">{EVENT_LOCATION_LABEL}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="business" className="font-body text-sm text-foreground/90">Business / industry</Label>
+                  <Input id="business" name="business" required placeholder="e.g. Tech, Real Estate, Finance" className="border-border bg-background font-body" />
+                </div>
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="phone" className="font-body text-sm text-foreground/80">Phone Number</Label>
-                <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  required
-                  inputMode="tel"
-                  autoComplete="tel"
-                  placeholder="+1 555 000 0000"
-                  pattern="^\+[0-9]{1,4}[0-9\s().-]{6,}$"
-                  title="Please include country code, e.g. +1 555 000 0000"
-                  className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body"
-                />
-                <p className="text-xs text-foreground/60 font-body">
-                  Include country code (for example: +1, +44, +234).
-                </p>
-              </div>
-              <div className="space-y-2">
-                <Label className="font-body text-sm text-foreground/80">Select Location</Label>
-                <Select required value={city} onValueChange={setCity}>
-                  <SelectTrigger className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body">
-                    <SelectValue placeholder="Choose a location" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-card border-white/10">
-                    <SelectItem value="london">{EVENT_LOCATION_LABEL}</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="business" className="font-body text-sm text-foreground/80">Business / Industry</Label>
-                <Input id="business" name="business" required placeholder="e.g. Tech, Real Estate, Finance" className="bg-navy-light/50 border-white/10 focus:border-gold/40 font-body" />
-              </div>
-              <Button variant="hero" size="xl" className="w-full mt-4" type="submit" disabled={loading}>
-                {loading ? "Submitting..." : "Register Now"}
+
+              <Button variant="hero" size="xl" className="mt-6 w-full" type="submit" disabled={loading}>
+                {loading ? "Submitting..." : "Submit registration"}
               </Button>
+              <p className="mt-3 text-center font-body text-xs text-muted-foreground">
+                By registering, you agree to be contacted with event details and updates.
+              </p>
             </form>
-        </ScrollReveal>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

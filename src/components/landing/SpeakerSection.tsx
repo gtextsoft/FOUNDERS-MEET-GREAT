@@ -1,40 +1,59 @@
-const speakerImg = "https://28coe.com/wp-content/uploads/2021/09/Dr.-Stephen-Akintayo-3-scaled.jpg";
 import ScrollReveal from "./ScrollReveal";
+import SectionHeader from "./SectionHeader";
+import { speakerCredentials } from "@/lib/funnel-content";
+
+const speakerImg = "https://28coe.com/wp-content/uploads/2021/09/Dr.-Stephen-Akintayo-3-scaled.jpg";
 
 const SpeakerSection = () => (
-  <section id="speaker" className="section-padding relative">
-    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navy-mid/50 to-transparent" />
-    <div className="container max-w-6xl mx-auto relative z-10">
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <section id="speaker" className="funnel-section border-y border-border bg-card/30">
+    <div className="container mx-auto max-w-6xl px-4">
+      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14 lg:items-start">
         <ScrollReveal direction="left">
-          <div className="relative mx-auto lg:mx-0 max-w-sm">
-            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-br from-gold/20 via-transparent to-gold/10 blur-md" />
+          <figure>
             <img
               src={speakerImg}
               alt="Dr. Stephen Akintayo"
-              className="relative rounded-2xl w-full aspect-[4/5] object-cover object-top shadow-2xl shadow-black/40 ring-1 ring-gold/20"
+              className="w-full rounded-2xl border border-border object-cover object-top aspect-[4/5]"
             />
-          </div>
+            <figcaption className="mt-4 border-l-2 border-gold/50 pl-4">
+              <p className="font-display text-lg font-semibold text-foreground">Dr. Stephen Akintayo</p>
+              <p className="mt-1 font-body text-sm text-muted-foreground">Founder, SACI HOLDINGS</p>
+            </figcaption>
+          </figure>
         </ScrollReveal>
 
         <div>
           <ScrollReveal direction="right">
-            <span className="section-eyebrow">Featured Speaker</span>
+            <SectionHeader
+              label="Your host"
+              title="The person leading the room"
+              description="Dr. Stephen Akintayo is a globally recognized entrepreneur, bestselling author, and investor. He has built across real estate, agriculture, technology, and media — and mentored thousands of founders worldwide."
+            />
           </ScrollReveal>
-          <ScrollReveal direction="right" delay={0.08}>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              About <span className="gold-gradient-text italic">Dr. Stephen Akintayo</span>
-            </h2>
+
+          <ScrollReveal direction="right" delay={0.1}>
+            <blockquote className="mt-8 border-l-2 border-gold pl-4 font-display text-xl italic leading-relaxed text-foreground/90 sm:text-2xl">
+              &ldquo;My mission is to raise a generation of wealth creators who lead with purpose and build with strategy.&rdquo;
+            </blockquote>
           </ScrollReveal>
+
           <ScrollReveal direction="right" delay={0.16}>
-            <div className="space-y-4 font-body text-muted-foreground text-base leading-relaxed">
-              <p>
-                Dr. Stephen Akintayo is a globally recognized entrepreneur, bestselling author, prolific investor, and visionary business leader. With a career spanning real estate, agriculture, technology, and media, he has built a multi-million dollar portfolio and helped thousands of individuals across the world build wealth, scale their businesses, and create lasting impact.
-              </p>
-              <p>
-                Known for his direct, no-nonsense approach to business and personal development, Dr. Akintayo has spoken on stages across Africa, Europe, the Middle East, and the Americas. His mission is simple: to raise a generation of wealth creators who lead with purpose and build with strategy.
-              </p>
-            </div>
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+              {speakerCredentials.map((credential) => (
+                <li
+                  key={credential}
+                  className="rounded-lg border border-border bg-card px-4 py-3 font-body text-sm text-muted-foreground"
+                >
+                  {credential}
+                </li>
+              ))}
+            </ul>
+          </ScrollReveal>
+
+          <ScrollReveal direction="right" delay={0.22}>
+            <p className="mt-6 font-body text-sm leading-relaxed text-muted-foreground sm:text-base">
+              At this London meet &amp; greet, you get direct access — a conversation in the room, not a one-way presentation from a distance.
+            </p>
           </ScrollReveal>
         </div>
       </div>

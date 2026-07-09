@@ -1,7 +1,14 @@
 import ScrollReveal from "./ScrollReveal";
-import { Star } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
-const testimonials = [
+const featured = {
+  quote:
+    "I came expecting a lecture — I left with a mentor, three investor leads, and a completely new perspective on scaling. This is unlike any event I've attended.",
+  initials: "MR",
+  role: "CEO, growth-stage company",
+};
+
+const supporting = [
   {
     quote:
       "Meeting Dr. Akintayo changed the trajectory of my business. The connections I made that evening led to a partnership that doubled our revenue within a year.",
@@ -10,68 +17,61 @@ const testimonials = [
   },
   {
     quote:
-      "I came expecting a lecture — I left with a mentor, three investor leads, and a completely new perspective on scaling. This is unlike any event I've attended.",
-    initials: "MR",
-    role: "CEO",
-  },
-  {
-    quote:
-      "Dr. Stephen doesn't just inspire — he equips. The frameworks he shared were immediately actionable. I implemented one the next morning and saw results in weeks.",
-    initials: "CN",
-    role: "Investor",
-  },
-  {
-    quote:
-      "The caliber of people in that room was unmatched. Founders, investors, executives — all in one space with real intention. Worth every second.",
+      "The caliber of people in that room was unmatched. Founders, investors, executives — all in one space with real intention.",
     initials: "DO",
     role: "Executive",
+  },
+  {
+    quote:
+      "Dr. Stephen doesn't just inspire — he equips. The frameworks he shared were immediately actionable.",
+    initials: "CN",
+    role: "Investor",
   },
 ];
 
 const TestimonialsSection = () => (
-  <section className="section-padding-lg relative overflow-hidden">
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-gold/5 blur-3xl" />
-
-    <div className="container max-w-6xl mx-auto px-4 relative z-10">
+  <section id="testimonials" className="funnel-section">
+    <div className="container mx-auto max-w-6xl px-4">
       <ScrollReveal>
-        <div className="text-center mb-12 sm:mb-16">
-          <span className="section-eyebrow">Testimonials</span>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold">
-            What Past Attendees <span className="gold-gradient-text italic">Say</span>
-          </h2>
-        </div>
+        <SectionHeader
+          label="Social proof"
+          title="What past attendees report"
+          description="These are from previous meet & greet experiences with Dr. Stephen Akintayo."
+        />
       </ScrollReveal>
 
-      <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
-        {testimonials.map((t, i) => (
-          <ScrollReveal key={t.initials} delay={i * 0.09}>
-            <div className="glass-card gold-border-glow card-accent-top rounded-2xl p-6 sm:p-8 h-full flex flex-col justify-between transition-all duration-300 hover:border-gold/35 hover:-translate-y-0.5 group">
+      <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+        <ScrollReveal delay={0.05}>
+          <figure className="h-full rounded-2xl border border-border bg-card p-6 sm:p-8">
+            <blockquote className="font-display text-2xl leading-snug text-foreground sm:text-3xl">
+              &ldquo;{featured.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-8 flex items-center gap-3 border-t border-border pt-5">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 bg-gold/10 font-display text-sm font-semibold text-gold">
+                {featured.initials}
+              </div>
               <div>
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: 5 }).map((_, si) => (
-                    <Star
-                      key={si}
-                      className="w-4 h-4 fill-gold text-gold"
-                    />
-                  ))}
-                </div>
-                <p className="font-body text-muted-foreground leading-relaxed text-sm sm:text-base">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
+                <p className="font-body text-sm font-medium text-foreground">{featured.role}</p>
+                <p className="font-body text-xs text-muted-foreground">Past attendee</p>
               </div>
+            </figcaption>
+          </figure>
+        </ScrollReveal>
 
-              <div className="flex items-center gap-3 mt-6 pt-5 border-t border-gold/10">
-                <div className="w-10 h-10 rounded-full bg-gold/10 ring-1 ring-gold/20 flex items-center justify-center text-gold font-display font-bold text-sm shrink-0">
-                  {t.initials}
-                </div>
-                <div>
-                  <p className="font-body text-xs text-gold/80 uppercase tracking-wider">{t.role}</p>
-                  <p className="font-body text-xs text-muted-foreground">Past attendee</p>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-        ))}
+        <div className="space-y-4">
+          {supporting.map((item, index) => (
+            <ScrollReveal key={item.initials} delay={0.08 + index * 0.05}>
+              <figure className="rounded-xl border border-border bg-background p-5">
+                <blockquote className="font-body text-sm leading-relaxed text-muted-foreground">
+                  &ldquo;{item.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-4 font-body text-xs text-muted-foreground">
+                  {item.role} · Past attendee
+                </figcaption>
+              </figure>
+            </ScrollReveal>
+          ))}
+        </div>
       </div>
     </div>
   </section>
