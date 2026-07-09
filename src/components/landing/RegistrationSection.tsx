@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -159,7 +159,15 @@ const RegistrationSection = () => {
                 {loading ? "Submitting..." : "Submit registration"}
               </Button>
               <p className="mt-3 text-center font-body text-xs text-muted-foreground">
-                By registering, you agree to be contacted with event details and updates.
+                By registering, you agree to our{" "}
+                <Link to="/privacy" className="text-foreground underline-offset-2 hover:underline">
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link to="/policy" className="text-foreground underline-offset-2 hover:underline">
+                  Event Policy
+                </Link>
+                . The team may contact you with event details and updates.
               </p>
             </form>
           </ScrollReveal>

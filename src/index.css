@@ -120,6 +120,23 @@
   .funnel-section-lg {
     @apply py-16 sm:py-24 md:py-28;
   }
+
+  .prose-legal h2 {
+    @apply font-display text-xl font-semibold text-foreground sm:text-2xl;
+  }
+
+  .prose-legal p,
+  .prose-legal li {
+    @apply font-body text-sm leading-relaxed text-muted-foreground sm:text-base;
+  }
+
+  .prose-legal ul {
+    @apply mt-3 list-disc space-y-2 pl-5;
+  }
+
+  .prose-legal a {
+    @apply text-foreground underline-offset-2 hover:underline;
+  }
 }
 
 @layer utilities {
