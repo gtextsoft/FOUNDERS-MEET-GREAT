@@ -19,15 +19,18 @@ const EventDetailsSection = () => (
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+          <div className="overflow-hidden border border-navy/10 bg-white">
             <table className="w-full text-left">
               <tbody>
                 {eventLogistics.map((row, index) => (
-                  <tr key={row.label} className={index !== eventLogistics.length - 1 ? "border-b border-border" : ""}>
-                    <th className="w-[38%] px-5 py-4 font-body text-xs uppercase tracking-wide text-muted-foreground align-top">
+                  <tr
+                    key={row.label}
+                    className={index !== eventLogistics.length - 1 ? "border-b border-navy/10" : ""}
+                  >
+                    <th className="w-[38%] px-5 py-4 align-top font-body text-[11px] font-semibold uppercase tracking-[0.14em] text-royal">
                       {row.label}
                     </th>
-                    <td className="px-5 py-4 font-body text-sm text-foreground">{row.value}</td>
+                    <td className="px-5 py-4 font-body text-sm font-medium text-navy">{row.value}</td>
                   </tr>
                 ))}
               </tbody>

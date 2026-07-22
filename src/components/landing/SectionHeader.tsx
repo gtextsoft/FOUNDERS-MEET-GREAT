@@ -6,13 +6,15 @@ interface SectionHeaderProps {
 }
 
 const SectionHeader = ({ label, title, description, align = "left" }: SectionHeaderProps) => (
-  <div className={align === "center" ? "text-center max-w-2xl mx-auto" : "max-w-2xl"}>
-    <p className="font-body text-xs uppercase tracking-[0.2em] text-gold/75 mb-3">{label}</p>
-    <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-bold leading-tight text-balance">
+  <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
+    <p className="mb-3 font-body text-[11px] font-semibold uppercase tracking-[0.22em] text-royal">
+      {label}
+    </p>
+    <h2 className="font-display text-3xl font-bold leading-[1.05] tracking-wide text-navy sm:text-4xl lg:text-[2.85rem]">
       {title}
     </h2>
     {description && (
-      <p className="mt-4 font-body text-muted-foreground text-base sm:text-lg leading-relaxed">
+      <p className="mt-4 font-body text-base leading-relaxed text-muted-foreground sm:text-lg">
         {description}
       </p>
     )}

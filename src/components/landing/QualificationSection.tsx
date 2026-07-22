@@ -16,7 +16,7 @@ const notForYou = [
 ];
 
 const QualificationSection = () => (
-  <section id="qualification" className="funnel-section border-y border-border bg-card/30">
+  <section id="qualification" className="funnel-section border-y border-navy/10 bg-white">
     <div className="container mx-auto max-w-6xl px-4">
       <ScrollReveal>
         <SectionHeader
@@ -27,14 +27,14 @@ const QualificationSection = () => (
         />
       </ScrollReveal>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+      <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-12">
         <ScrollReveal delay={0.05}>
-          <div className="h-full rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <p className="font-body text-sm font-semibold text-foreground">This is for you if</p>
+          <div>
+            <p className="font-display text-lg font-bold tracking-wide text-navy">This is for you if</p>
             <ul className="mt-5 space-y-4">
               {forYou.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-royal" />
                   <span className="font-body text-sm leading-relaxed text-muted-foreground">{item}</span>
                 </li>
               ))}
@@ -43,12 +43,14 @@ const QualificationSection = () => (
         </ScrollReveal>
 
         <ScrollReveal delay={0.1}>
-          <div className="h-full rounded-2xl border border-border bg-background p-6 sm:p-8">
-            <p className="font-body text-sm font-semibold text-foreground">This may not be the right fit if</p>
+          <div>
+            <p className="font-display text-lg font-bold tracking-wide text-navy">
+              This may not be the right fit if
+            </p>
             <ul className="mt-5 space-y-4">
               {notForYou.map((item) => (
                 <li key={item} className="flex gap-3">
-                  <X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
+                  <X className="mt-0.5 h-4 w-4 shrink-0 text-crimson/70" />
                   <span className="font-body text-sm leading-relaxed text-muted-foreground">{item}</span>
                 </li>
               ))}

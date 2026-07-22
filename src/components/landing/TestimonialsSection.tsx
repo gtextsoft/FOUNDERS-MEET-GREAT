@@ -34,38 +34,38 @@ const TestimonialsSection = () => (
     <div className="container mx-auto max-w-6xl px-4">
       <ScrollReveal>
         <SectionHeader
-          label="Social proof"
+          label="From past rooms"
           title="What past attendees report"
           description="These are from previous meet & greet experiences with Dr. Stephen Akintayo."
         />
       </ScrollReveal>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="mt-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
         <ScrollReveal delay={0.05}>
-          <figure className="h-full rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <blockquote className="font-display text-2xl leading-snug text-foreground sm:text-3xl">
+          <figure className="border-l-[3px] border-crimson pl-5 sm:pl-6">
+            <blockquote className="font-display text-2xl font-semibold leading-snug tracking-wide text-navy sm:text-3xl lg:text-[2.1rem]">
               &ldquo;{featured.quote}&rdquo;
             </blockquote>
-            <figcaption className="mt-8 flex items-center gap-3 border-t border-border pt-5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-gold/30 bg-gold/10 font-display text-sm font-semibold text-gold">
+            <figcaption className="mt-6 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center bg-navy font-display text-sm font-bold text-white">
                 {featured.initials}
               </div>
               <div>
-                <p className="font-body text-sm font-medium text-foreground">{featured.role}</p>
+                <p className="font-body text-sm font-semibold text-navy">{featured.role}</p>
                 <p className="font-body text-xs text-muted-foreground">Past attendee</p>
               </div>
             </figcaption>
           </figure>
         </ScrollReveal>
 
-        <div className="space-y-4">
+        <div className="space-y-5">
           {supporting.map((item, index) => (
             <ScrollReveal key={item.initials} delay={0.08 + index * 0.05}>
-              <figure className="rounded-xl border border-border bg-background p-5">
+              <figure className="border-b border-navy/10 pb-5">
                 <blockquote className="font-body text-sm leading-relaxed text-muted-foreground">
                   &ldquo;{item.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-4 font-body text-xs text-muted-foreground">
+                <figcaption className="mt-3 font-body text-xs font-semibold uppercase tracking-[0.12em] text-royal">
                   {item.role} · Past attendee
                 </figcaption>
               </figure>

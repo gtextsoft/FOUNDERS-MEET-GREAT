@@ -13,7 +13,7 @@ import RegistrationSection from "@/components/landing/RegistrationSection";
 import Footer from "@/components/landing/Footer";
 
 const Index = () => (
-  <div className="min-h-screen bg-background overflow-x-hidden">
+  <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
     <Navbar />
     <main>
       <HeroSection />

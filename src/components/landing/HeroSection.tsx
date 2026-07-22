@@ -1,85 +1,89 @@
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { CalendarDays, Clock, MapPin, Users } from "lucide-react";
-import { EVENT_CITY, EVENT_DATE_DISPLAY, EVENT_TIME_DISPLAY } from "@/lib/event";
-import CountdownStrip from "./CountdownStrip";
-import heroBg from "@/assets/hero-bg.jpg";
+import speakerImg from "@/assets/dr.jpg";
+import DiamondRule from "./DiamondRule";
 
 const HeroSection = () => (
-  <section className="relative border-b border-border">
-    <div className="absolute inset-0">
-      <img src={heroBg} alt="" className="h-full w-full object-cover" />
-      <div className="absolute inset-0 bg-background/88" />
-    </div>
+  <section className="sunburst-panel relative min-h-[100svh] overflow-hidden border-b border-navy/10">
+    <div
+      className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,hsla(214,72%,42%,0.08)_0%,transparent_42%),linear-gradient(120deg,hsla(221,55%,14%,0.04)_0%,transparent_50%)]"
+      aria-hidden
+    />
 
-    <div className="container relative z-10 mx-auto max-w-6xl px-4 pb-14 pt-28 sm:pb-20 sm:pt-32">
-      <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
-        <div>
-          <p className="font-body text-xs uppercase tracking-[0.2em] text-gold/80">
-            Exclusive London founder gathering
-          </p>
-          <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">
-            Meet Dr. Stephen Akintayo and connect with London&apos;s founder community — in one focused evening.
-          </h1>
-          <p className="mt-5 max-w-xl font-body text-base leading-relaxed text-muted-foreground sm:text-lg">
-            A private CEO &amp; Founders Meet &amp; Greet built for real conversations, direct access, and relationships that move your business forward.
-          </p>
+    {/* Soft London landmark silhouettes */}
+    <div
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] opacity-[0.14] animate-london-drift"
+      aria-hidden
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' fill='%231A4BB8'%3E%3Cpath d='M0 288h80v-80h40v80h60V160h40v128h50V96h30v192h70V128h40v160h90V64h50v224h60V192h40v96h80V112h40v176h100V48h40v240h70V160h50v128h90V80h40v208h120V200h40v88h90z'/%3E%3C/svg%3E")`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center bottom",
+        backgroundSize: "cover",
+      }}
+    />
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
-              <a href="#register">Reserve your seat</a>
-            </Button>
-            <Button variant="hero-outline" size="xl" className="w-full sm:w-auto" asChild>
-              <a href="#agenda">See the evening schedule</a>
-            </Button>
-          </div>
+    <div className="container relative z-10 mx-auto grid max-w-6xl items-end gap-8 px-4 pb-10 pt-28 sm:pb-14 sm:pt-32 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:pb-0 lg:pt-28">
+      <motion.div
+        className="max-w-xl pb-4 lg:pb-20"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <p className="font-body text-[11px] font-semibold uppercase tracking-[0.24em] text-royal">
+          Stephen Akintayo Foundation presents
+        </p>
 
-          <p className="mt-4 font-body text-sm text-muted-foreground">
-            Limited capacity. Venue details sent after registration.
-          </p>
+        <h1 className="mt-4 font-display text-[2.65rem] font-extrabold leading-[0.92] tracking-wide text-navy sm:text-6xl lg:text-[4.35rem]">
+          CEOs and Founders&apos;
+          <span className="mt-1 block text-crimson">Meet &amp; Greet</span>
+        </h1>
+
+        <DiamondRule className="mt-6 justify-start" />
+
+        <p className="mt-5 max-w-md font-body text-base leading-relaxed text-muted-foreground sm:text-lg">
+          An in-person evening in London with Dr. Stephen Akintayo — built for serious founders who want real access, not another crowded mixer.
+        </p>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
+            <a href="#register">Reserve your seat</a>
+          </Button>
+          <Button variant="hero-outline" size="xl" className="w-full sm:w-auto" asChild>
+            <a href="#agenda">Evening schedule</a>
+          </Button>
         </div>
+      </motion.div>
 
-        <aside className="rounded-2xl border border-border bg-card/90 p-5 sm:p-6">
-          <p className="font-body text-xs uppercase tracking-[0.18em] text-gold/80">Event snapshot</p>
+      <motion.div
+        className="relative mx-auto w-full max-w-lg lg:max-w-none lg:justify-self-end"
+        initial={{ opacity: 0, y: 36 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.95, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+      >
+        <p
+          className="pointer-events-none absolute left-1/2 top-[8%] z-0 -translate-x-1/2 select-none font-display text-[5.5rem] font-extrabold leading-none tracking-[0.04em] text-royal/25 sm:text-[7.5rem] lg:left-auto lg:right-0 lg:translate-x-0 lg:text-[9rem]"
+          aria-hidden
+        >
+          LONDON
+        </p>
 
-          <dl className="mt-5 space-y-4">
-            <div className="flex gap-3 border-b border-border pb-4">
-              <CalendarDays className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <div>
-                <dt className="font-body text-xs uppercase tracking-wide text-muted-foreground">Date</dt>
-                <dd className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_DATE_DISPLAY}</dd>
-              </div>
-            </div>
-            <div className="flex gap-3 border-b border-border pb-4">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <div>
-                <dt className="font-body text-xs uppercase tracking-wide text-muted-foreground">Time</dt>
-                <dd className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_TIME_DISPLAY}</dd>
-              </div>
-            </div>
-            <div className="flex gap-3 border-b border-border pb-4">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <div>
-                <dt className="font-body text-xs uppercase tracking-wide text-muted-foreground">Location</dt>
-                <dd className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_CITY}, UK</dd>
-              </div>
-            </div>
-            <div className="flex gap-3">
-              <Users className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
-              <div>
-                <dt className="font-body text-xs uppercase tracking-wide text-muted-foreground">Hosted by</dt>
-                <dd className="mt-1 font-body text-sm font-medium text-foreground">Stephen Akintayo Foundation</dd>
-              </div>
-            </div>
-          </dl>
-
-          <div className="mt-6 border-t border-border pt-5">
-            <p className="mb-3 font-body text-xs uppercase tracking-[0.18em] text-muted-foreground">
-              Registration closes in
+        <div className="relative z-10 mx-auto w-[86%] sm:w-[78%] lg:ml-auto lg:mr-0 lg:w-[92%]">
+          <div className="absolute -inset-x-6 bottom-0 top-[18%] rounded-[40%] bg-[radial-gradient(ellipse_at_center,hsla(214,72%,42%,0.28),transparent_68%)] blur-2xl" aria-hidden />
+          <img
+            src={speakerImg}
+            alt="Dr. Stephen Akintayo, Founder of SACI Holdings"
+            className="relative z-10 mx-auto block w-full object-cover object-top drop-shadow-[0_28px_50px_rgba(10,35,90,0.28)]"
+          />
+          <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-background via-background/70 to-transparent pb-4 pt-16 text-center lg:pb-8">
+            <p className="font-display text-xl font-bold tracking-wide text-navy sm:text-2xl">
+              Dr. Stephen Akintayo
             </p>
-            <CountdownStrip />
+            <p className="mt-0.5 font-body text-sm font-medium text-royal">
+              Founder, SACI Holdings
+            </p>
           </div>
-        </aside>
-      </div>
+        </div>
+      </motion.div>
     </div>
   </section>
 );

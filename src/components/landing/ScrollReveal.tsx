@@ -18,11 +18,11 @@ const ScrollReveal = ({ children, className, delay = 0, direction = "up" }: Scro
   const offset = directionMap[direction];
   return (
     <motion.div
-      initial={{ opacity: 0, filter: "blur(4px)", ...offset }}
-      whileInView={{ opacity: 1, filter: "blur(0px)", x: 0, y: 0 }}
+      initial={{ opacity: 0, ...offset }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{
-        duration: 0.65,
+        duration: 0.55,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}
