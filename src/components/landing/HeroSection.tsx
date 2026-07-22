@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { CalendarDays, MapPin, Users } from "lucide-react";
-import { EVENT_CITY, EVENT_DATE_DISPLAY } from "@/lib/event";
+import { CalendarDays, Clock, MapPin, Users } from "lucide-react";
+import { EVENT_CITY, EVENT_DATE_DISPLAY, EVENT_TIME_DISPLAY } from "@/lib/event";
 import CountdownStrip from "./CountdownStrip";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -47,6 +47,13 @@ const HeroSection = () => (
               <div>
                 <dt className="font-body text-xs uppercase tracking-wide text-muted-foreground">Date</dt>
                 <dd className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_DATE_DISPLAY}</dd>
+              </div>
+            </div>
+            <div className="flex gap-3 border-b border-border pb-4">
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+              <div>
+                <dt className="font-body text-xs uppercase tracking-wide text-muted-foreground">Time</dt>
+                <dd className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_TIME_DISPLAY}</dd>
               </div>
             </div>
             <div className="flex gap-3 border-b border-border pb-4">

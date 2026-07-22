@@ -8,32 +8,32 @@ export const registrationIncludes = [
 
 export const agenda = [
   {
-    time: "12:00 PM",
+    time: "6:00 PM",
     title: "Arrival & registration",
     detail: "Check in, collect your seat, and settle in before the room fills up.",
   },
   {
-    time: "12:30 PM",
+    time: "6:30 PM",
     title: "Opening & introductions",
     detail: "Welcome from the host team and a brief overview of the evening.",
   },
   {
-    time: "1:00 PM",
+    time: "7:00 PM",
     title: "Keynote with Dr. Stephen Akintayo",
     detail: "Business insight, wealth-building frameworks, and practical direction for founders and executives.",
   },
   {
-    time: "2:00 PM",
+    time: "8:00 PM",
     title: "Q&A and open conversation",
     detail: "Ask direct questions and get answers in the room — not from a stage-only format.",
   },
   {
-    time: "2:45 PM",
+    time: "8:45 PM",
     title: "Structured networking",
     detail: "Meet founders, investors, and operators with intention — not random mingling.",
   },
   {
-    time: "3:30 PM",
+    time: "9:30 PM",
     title: "Close & next steps",
     detail: "Final remarks, photo opportunities, and details on staying connected after the event.",
   },
@@ -47,7 +47,8 @@ export const speakerCredentials = [
 ];
 
 export const eventLogistics = [
-  { label: "Date", value: "Sunday, 23rd August 2026" },
+  { label: "Date", value: "Sunday, 27th September 2026" },
+  { label: "Time", value: "6:00 PM" },
   { label: "City", value: "London, United Kingdom" },
   { label: "Format", value: "In-person meet & greet" },
   { label: "Duration", value: "Approx. 3.5 hours" },

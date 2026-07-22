@@ -15,10 +15,10 @@ const AgendaSection = () => (
           />
           <div className="mt-8 rounded-xl border border-border bg-card p-5">
             <p className="font-body text-sm text-muted-foreground">
-              <span className="font-medium text-foreground">Start time:</span> 12:00 PM
+              <span className="font-medium text-foreground">Start time:</span> 6:00 PM
             </p>
             <p className="mt-2 font-body text-sm text-muted-foreground">
-              <span className="font-medium text-foreground">Approx. end:</span> 3:30 PM
+              <span className="font-medium text-foreground">Approx. end:</span> 9:30 PM
             </p>
             <p className="mt-2 font-body text-sm text-muted-foreground">
               Arrive 15 minutes early for check-in.

@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import ScrollReveal from "./ScrollReveal";
 import SectionHeader from "./SectionHeader";
 import CountdownStrip from "./CountdownStrip";
-import { EVENT_DATE_DISPLAY, EVENT_LOCATION_LABEL } from "@/lib/event";
+import { EVENT_DATE_DISPLAY, EVENT_LOCATION_LABEL, EVENT_TIME_DISPLAY } from "@/lib/event";
 import { registrationIncludes } from "@/lib/funnel-content";
 
 const RegistrationSection = () => {
@@ -94,6 +94,7 @@ const RegistrationSection = () => {
                 <div className="mt-6 border-t border-border pt-5">
                   <p className="font-body text-xs uppercase tracking-wide text-muted-foreground">Event date</p>
                   <p className="mt-1 font-body text-sm font-medium text-foreground">{EVENT_DATE_DISPLAY}</p>
+                  <p className="mt-1 font-body text-sm text-muted-foreground">{EVENT_TIME_DISPLAY} · London, UK</p>
                 </div>
 
                 <div className="mt-5 border-t border-border pt-5">
