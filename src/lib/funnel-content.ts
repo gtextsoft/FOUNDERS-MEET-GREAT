@@ -47,7 +47,7 @@ export const speakerCredentials = [
 ];
 
 export const eventLogistics = [
-  { label: "Date", value: "Sunday, 27th September 2026" },
+  { label: "Date", value: "Friday, 25th September 2026" },
   { label: "Time", value: "6:00 PM" },
   { label: "City", value: "London, United Kingdom" },
   { label: "Format", value: "In-person meet & greet" },
