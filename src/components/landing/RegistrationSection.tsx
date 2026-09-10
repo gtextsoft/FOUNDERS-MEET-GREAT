@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,20 +13,20 @@ import DiamondRule from "./DiamondRule";
 import { EVENT_DATE_DISPLAY, EVENT_LOCATION_LABEL, EVENT_TIME_DISPLAY } from "@/lib/event";
 import { registrationIncludes } from "@/lib/funnel-content";
 
+const COLLECTOR_SUBMIT_URL = "https://collector.stephenakintayofoundation.org/v1/forms/3iO_QZZnrCOg9qrX/submit";
+
 const RegistrationSection = () => {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("london");
   const phoneWithCountryCodeRegex = /^\+[0-9]{1,4}[0-9\s().-]{6,}$/;
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = e.target as HTMLFormElement;
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const form = e.currentTarget;
     const phoneInput = form.elements.namedItem("phone") as HTMLInputElement | null;
     const phoneValue = phoneInput?.value?.trim() ?? "";
 
     if (!phoneWithCountryCodeRegex.test(phoneValue)) {
+      e.preventDefault();
       if (phoneInput) {
         phoneInput.setCustomValidity("Please include country code, e.g. +1 555 000 0000");
         phoneInput.reportValidity();
@@ -41,29 +41,6 @@ const RegistrationSection = () => {
     }
 
     setLoading(true);
-    const formData = new FormData(form);
-    formData.append("city", city);
-
-    try {
-      const res = await fetch("https://formspree.io/f/xaqpgapo", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      if (res.ok) {
-        toast.success("Registration received! We'll be in touch soon.");
-        form.reset();
-        setCity("london");
-        navigate("/thank-you");
-      } else {
-        toast.error("Something went wrong. Please try again.");
-      }
-    } catch {
-      toast.error("Network error. Please try again.");
-    } finally {
-      setLoading(false);
-    }
   };
 
   return (
@@ -117,9 +94,14 @@ const RegistrationSection = () => {
 
           <ScrollReveal delay={0.1}>
             <form
+              method="POST"
+              action={COLLECTOR_SUBMIT_URL}
               onSubmit={handleSubmit}
               className="border border-navy/10 bg-white p-5 shadow-[0_24px_60px_-36px_rgba(10,35,90,0.35)] sm:p-8"
             >
+              <div style={{ position: "absolute", left: "-9999px" }}>
+                <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+              </div>
               <p className="font-display text-xl font-bold tracking-wide text-navy">Registration form</p>
               <p className="mt-1 font-body text-xs text-muted-foreground">
                 Fields marked below are required to secure your seat.
@@ -173,7 +155,7 @@ const RegistrationSection = () => {
                 </div>
                 <div className="space-y-2">
                   <Label className="font-body text-sm text-navy">Event location</Label>
-                  <Select required value={city} onValueChange={setCity}>
+                  <Select name="city" required value={city} onValueChange={setCity}>
                     <SelectTrigger className="border-navy/15 bg-paper font-body">
                       <SelectValue placeholder="Choose a location" />
                     </SelectTrigger>
