@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { toast } from "sonner";
 import ScrollReveal from "./ScrollReveal";
 import SectionHeader from "./SectionHeader";
 import CountdownStrip from "./CountdownStrip";
@@ -16,32 +15,7 @@ import { registrationIncludes } from "@/lib/funnel-content";
 const COLLECTOR_SUBMIT_URL = "https://collector.stephenakintayofoundation.org/v1/forms/3iO_QZZnrCOg9qrX/submit";
 
 const RegistrationSection = () => {
-  const [loading, setLoading] = useState(false);
   const [city, setCity] = useState("london");
-  const phoneWithCountryCodeRegex = /^\+[0-9]{1,4}[0-9\s().-]{6,}$/;
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const form = e.currentTarget;
-    const phoneInput = form.elements.namedItem("phone") as HTMLInputElement | null;
-    const phoneValue = phoneInput?.value?.trim() ?? "";
-
-    if (!phoneWithCountryCodeRegex.test(phoneValue)) {
-      e.preventDefault();
-      if (phoneInput) {
-        phoneInput.setCustomValidity("Please include country code, e.g. +1 555 000 0000");
-        phoneInput.reportValidity();
-        phoneInput.focus();
-      }
-      toast.error("Please enter your phone number with country code.");
-      return;
-    }
-
-    if (phoneInput) {
-      phoneInput.setCustomValidity("");
-    }
-
-    setLoading(true);
-  };
 
   return (
     <section id="register" className="funnel-section-lg sunburst-panel">
@@ -96,7 +70,7 @@ const RegistrationSection = () => {
             <form
               method="POST"
               action={COLLECTOR_SUBMIT_URL}
-              onSubmit={handleSubmit}
+              encType="multipart/form-data"
               className="border border-navy/10 bg-white p-5 shadow-[0_24px_60px_-36px_rgba(10,35,90,0.35)] sm:p-8"
             >
               <div style={{ position: "absolute", left: "-9999px" }}>
@@ -145,7 +119,7 @@ const RegistrationSection = () => {
                     inputMode="tel"
                     autoComplete="tel"
                     placeholder="+44 7700 900000"
-                    pattern="^\+[0-9]{1,4}[0-9\s().-]{6,}$"
+                    pattern={String.raw`\+[0-9]{1,4}[0-9\s\(\).\-]{6,}`}
                     title="Please include country code, e.g. +44 7700 900000"
                     className="border-navy/15 bg-paper font-body"
                   />
@@ -178,8 +152,8 @@ const RegistrationSection = () => {
                 </div>
               </div>
 
-              <Button variant="hero" size="xl" className="mt-6 w-full" type="submit" disabled={loading}>
-                {loading ? "Submitting..." : "Submit registration"}
+              <Button variant="hero" size="xl" className="mt-6 w-full" type="submit">
+                Submit registration
               </Button>
               <p className="mt-3 text-center font-body text-xs text-muted-foreground">
                 By registering, you agree to our{" "}
